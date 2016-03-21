@@ -1,6 +1,7 @@
 var React = require('react'),
-    ReactDOM = require('react-dom');
+    ReactDOM = require('react-dom'),
+    Pomodoro = require('./pomodoro');
 
 document.addEventListener("DOMContentLoaded", function() {
-  ReactDOM.render(<div>React is functioning properly</div>, document.getElementById('root'));
+  ReactDOM.render(<Pomodoro/>, document.getElementById('root'));
 });
