@@ -1,6 +1,7 @@
 var React = require('react'),
     Display = require('./display'),
-    Buttons = require('./buttons');
+    Buttons = require('./buttons'),
+    Dials = require('./dials');
 
 var Pomodoro = React.createClass({
   getInitialState: function(){
@@ -47,10 +48,35 @@ var Pomodoro = React.createClass({
     });
   },
 
+  breakTimeChange: function(difference){
+    this.setState({breakTime: this.state.breakTime + difference});
+  },
+
+  workTimeChange: function(difference){
+    var workTime = this.state.workTime + difference;
+    if(this.state.timeRemaining === this.state.workTime * 60) {
+      var timeRemaining = workTime * 60;
+      this.setState({
+        workTime: workTime,
+        timeRemaining: timeRemaining
+      });
+    }
+    else {
+      this.setState({workTime: workTime});
+    }
+  },
+
+
   render: function(){
     return(
       <div>
         <div>Pomodoro timer</div>
+        <Dials
+          breakTime={this.state.breakTime}
+          workTime={this.state.workTime}
+          workTimeChange={this.workTimeChange}
+          breakTimeChange={this.breakTimeChange}
+        />
         <Display timeRemaining={this.state.timeRemaining}/>
         <Buttons
           running={this.state.running}
