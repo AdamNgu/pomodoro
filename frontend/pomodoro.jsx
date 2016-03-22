@@ -49,14 +49,14 @@ var Pomodoro = React.createClass({
   },
 
   breakTimeChange: function(difference){
-    if (this.state.breakTime > 1) {
+    if (this.state.breakTime > 1 && difference < 1) {
       this.setState({breakTime: this.state.breakTime + difference});
     }
   },
 
   workTimeChange: function(difference){
     var workTime = this.state.workTime + difference;
-    if (this.state.workTime === 1) {
+    if (this.state.workTime === 1 && difference < 1) {
 
     }
     else if(this.state.timeRemaining === this.state.workTime * 60) {
