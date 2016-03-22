@@ -12,7 +12,7 @@ var Display = React.createClass({
     }
 
     return(
-      <div>{minutes}:{seconds}</div>
+      <h1 className="display">{minutes}:{seconds}</h1>
     );
   }
 });

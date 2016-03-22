@@ -10,9 +10,9 @@ var Buttons = React.createClass({
     }
 
     return(
-      <div>
-        <button onClick={this.props.toggleRunning}>{btn1Text}</button>
-        <button onClick={this.props.reset}>Reset</button>
+      <div className="buttons">
+        <button className="leftButton" onClick={this.props.toggleRunning}>{btn1Text}</button>
+        <button className="rightButton" onClick={this.props.reset}>Reset</button>
       </div>
     );
   }

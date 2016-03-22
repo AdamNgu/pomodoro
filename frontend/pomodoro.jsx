@@ -68,9 +68,18 @@ var Pomodoro = React.createClass({
 
 
   render: function(){
+    var titleText;
+
+    if(this.state.isBreak){
+      titleText = "Take a break!";
+    }
+    else {
+      titleText = "Get to work!";
+    }
+
     return(
       <div>
-        <div>Pomodoro timer</div>
+        <h2>{titleText}</h2>
         <Dials
           breakTime={this.state.breakTime}
           workTime={this.state.workTime}

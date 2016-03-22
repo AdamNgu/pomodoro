@@ -1,0 +1,49 @@
+body {
+  padding-top: 10px;
+  background-color: #21252B;
+  color: #ABB2BF;
+  font-family: Helvetica, sans-serif;
+  text-align: center;
+}
+
+#root {
+  width: 300px;
+}
+
+button {
+  margin: 5px;
+  background-color: #282C34;
+  border-width: 1px;
+  border-radius: 3px;
+}
+
+.dials {
+  font-size: 20px;
+  margin: 20px;
+}
+
+.leftDial {
+  float: left;
+}
+
+.rightDial {
+  float: right;
+}
+
+.display {
+  clear: both;
+  padding-top: 20px;
+}
+
+.buttons {
+  margin: 20px;
+  font-size: 20px;
+}
+
+.leftButton {
+  float: left;
+}
+
+.rightButton {
+  float: right;
+}

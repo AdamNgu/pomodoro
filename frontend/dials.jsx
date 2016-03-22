@@ -20,14 +20,19 @@ var Dials = React.createClass({
 
   render: function(){
     return(
-      <div>
-        <button onClick={this.workTimeDecrease}>-</button>
-        {this.props.workTime}
-        <button onClick={this.workTimeIncrease}>+</button>
-        <button onClick={this.breakTimeDecrease}>-</button>
-        {this.props.breakTime}
-        <button onClick={this.breakTimeIncrease}>+</button>
-
+      <div className="dials">
+          <div className="leftDial">
+            <h4>Work Time</h4>
+            <button onClick={this.workTimeDecrease}>-</button>
+            {this.props.workTime}
+            <button onClick={this.workTimeIncrease}>+</button>
+          </div>
+          <div className="rightDial">
+            <h4>Break Time</h4>
+            <button onClick={this.breakTimeDecrease}>-</button>
+            {this.props.breakTime}
+            <button onClick={this.breakTimeIncrease}>+</button>
+          </div>
       </div>
     );
   }
