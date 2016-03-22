@@ -1,5 +1,2 @@
 # prevents node elements from being added to git
 node_modules
-
-# prevents webpack output from being added to git
-bundle.js
