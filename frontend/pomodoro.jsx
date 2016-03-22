@@ -49,7 +49,7 @@ var Pomodoro = React.createClass({
   },
 
   breakTimeChange: function(difference){
-    if (this.state.breakTime > 1 && difference < 1) {
+    if (this.state.breakTime > 1 || difference >= 1) {
       this.setState({breakTime: this.state.breakTime + difference});
     }
   },
