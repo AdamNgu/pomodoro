@@ -10,7 +10,8 @@ var Pomodoro = React.createClass({
         running: false,
         isBreak: false,
         workTime: 25,
-        breakTime: 5
+        breakTime: 5,
+        cyclesCompleted: 0
       };
   },
 
@@ -30,6 +31,7 @@ var Pomodoro = React.createClass({
         }
         else {
           timeRemaining = this.state.breakTime * 60;
+          this.setState({cyclesCompleted: this.state.cyclesCompleted + 1});
         }
         this.setState({timeRemaining: timeRemaining, isBreak: !this.state.isBreak});
       }
@@ -44,7 +46,8 @@ var Pomodoro = React.createClass({
     this.setState({
       timeRemaining: this.state.workTime * 60,
       running: false,
-      isBreak: false
+      isBreak: false,
+      cyclesCompleted: 0
     });
   },
 
@@ -91,7 +94,7 @@ var Pomodoro = React.createClass({
           workTimeChange={this.workTimeChange}
           breakTimeChange={this.breakTimeChange}
         />
-        <Display timeRemaining={this.state.timeRemaining}/>
+      <Display timeRemaining={this.state.timeRemaining} cyclesCompleted={this.state.cyclesCompleted}/>
         <Buttons
           running={this.state.running}
           toggleRunning={this.toggleRunning}

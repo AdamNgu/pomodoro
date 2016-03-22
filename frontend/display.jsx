@@ -12,7 +12,10 @@ var Display = React.createClass({
     }
 
     return(
-      <h1 className="display">{minutes}:{seconds}</h1>
+      <div>
+        <h1 className="display">{minutes}:{seconds}</h1>
+        <h4>Cycles Completed: {this.props.cyclesCompleted}</h4>
+    </div>
     );
   }
 });
