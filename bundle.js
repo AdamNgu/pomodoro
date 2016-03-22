@@ -19709,12 +19709,14 @@
 	  },
 	
 	  breakTimeChange: function (difference) {
-	    this.setState({ breakTime: this.state.breakTime + difference });
+	    if (this.state.breakTime > 1) {
+	      this.setState({ breakTime: this.state.breakTime + difference });
+	    }
 	  },
 	
 	  workTimeChange: function (difference) {
 	    var workTime = this.state.workTime + difference;
-	    if (this.state.timeRemaining === this.state.workTime * 60) {
+	    if (this.state.workTime === 1) {} else if (this.state.timeRemaining === this.state.workTime * 60) {
 	      var timeRemaining = workTime * 60;
 	      this.setState({
 	        workTime: workTime,
