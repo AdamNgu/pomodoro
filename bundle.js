@@ -19671,7 +19671,8 @@
 	      running: false,
 	      isBreak: false,
 	      workTime: 25,
-	      breakTime: 5
+	      breakTime: 5,
+	      cyclesCompleted: 0
 	    };
 	  },
 	
@@ -19690,6 +19691,7 @@
 	          timeRemaining = this.state.workTime * 60;
 	        } else {
 	          timeRemaining = this.state.breakTime * 60;
+	          this.setState({ cyclesCompleted: this.state.cyclesCompleted + 1 });
 	        }
 	        this.setState({ timeRemaining: timeRemaining, isBreak: !this.state.isBreak });
 	      }
@@ -19704,7 +19706,8 @@
 	    this.setState({
 	      timeRemaining: this.state.workTime * 60,
 	      running: false,
-	      isBreak: false
+	      isBreak: false,
+	      cyclesCompleted: 0
 	    });
 	  },
 	
@@ -19750,7 +19753,7 @@
 	        workTimeChange: this.workTimeChange,
 	        breakTimeChange: this.breakTimeChange
 	      }),
-	      React.createElement(Display, { timeRemaining: this.state.timeRemaining }),
+	      React.createElement(Display, { timeRemaining: this.state.timeRemaining, cyclesCompleted: this.state.cyclesCompleted }),
 	      React.createElement(Buttons, {
 	        running: this.state.running,
 	        toggleRunning: this.toggleRunning,
@@ -19782,11 +19785,21 @@
 	    }
 	
 	    return React.createElement(
-	      "h1",
-	      { className: "display" },
-	      minutes,
-	      ":",
-	      seconds
+	      "div",
+	      null,
+	      React.createElement(
+	        "h1",
+	        { className: "display" },
+	        minutes,
+	        ":",
+	        seconds
+	      ),
+	      React.createElement(
+	        "h4",
+	        null,
+	        "Cycles Completed: ",
+	        this.props.cyclesCompleted
+	      )
 	    );
 	  }
 	});
