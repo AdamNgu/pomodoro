@@ -1,4 +1,6 @@
 # Pomodoro
+http://adamngu.github.io/pomodoro/
+
 A minimalist pomodoro timer
 
 Made with React, Babel, and a little bit of help from Bootstrap.
